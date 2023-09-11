@@ -3,16 +3,16 @@ dotenv.config()
 
 import express from 'express'
 import mongoose from 'mongoose'
+import personRoute from './routes/personRoute.js'
 import cors from 'cors'
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 4001;
 
 
 app.use(express.json())
 app.use(cors())
 app.use(express.urlencoded({ extended: true }))
-
 
 //DB
 const connectDB = async () => {
@@ -24,9 +24,7 @@ const connectDB = async () => {
     }
 };
 
-app.get('/api', (req, res) => {
-  res.send("good")
-})
+app.use('/api', personRoute)
 
 connectDB().then(() => {
   app.listen(PORT, () => {
