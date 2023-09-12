@@ -54,8 +54,8 @@ export const update_person = async (req, res) => {
     try {
         await Person.findByIdAndUpdate(id, updatePerson)
         res.send({
+            updatePerson,
             message: 'Successfully updated',
-            status: 200
         })
     } catch (err) {
         console.log(err)

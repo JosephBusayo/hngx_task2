@@ -7,7 +7,7 @@ const personSchema = new Schema({
         type: String,
         required: true
     }
-}, {timestamps: true})
+})
 
 const Person = mongoose.model('Person', personSchema)
 export default Person
