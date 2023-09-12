@@ -27,7 +27,7 @@ export const get_all_persons = async (req, res) => {
         res.send(persons)
     } catch (err) {
         console.log(err);
-        res.status(500).send('Internal Server Error');
+        res.status(500).send(err);
     }
 }
 
@@ -70,6 +70,6 @@ export const delete_person = async (req, res) => {
         res.send('Successfully deleted');
     } catch (err) {
         console.log(err);
-        res.status(500).send('Internal Server Error');
+        res.status(500).send(err);
     }
 }
